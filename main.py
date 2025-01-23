@@ -33,6 +33,10 @@ def main():
                 return
         for object in updatable:
             object.update(dt)
+        for object in asteroids:
+            if object.did_collide(player):
+                print("Game over!")
+                return
         pygame.Surface.fill(screen, (0, 0, 0))
         for object in drawable:
             object.draw(screen)
